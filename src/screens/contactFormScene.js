@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Platform, Dimensions, FlatList} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Platform,
+  Dimensions,
+  FlatList,
+  Alert,
+} from 'react-native';
 import BaseScene from 'labsitcode/src/screens/baseScene';
 import {
   GenericTextComponent,
@@ -11,6 +18,7 @@ import {verticalScale} from 'labsitcode/src/commons/scaling';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import DefaultFormViewComponent from 'labsitcode/src/components/container/defaultFormViewComponent';
 import {getContacts, mock} from 'labsitcode/src/realm/database/databaseAccess';
+import PostService from 'labsitcode/src/services/postService';
 
 export default class ContactFormScene extends BaseScene {
   constructor(props) {
@@ -28,11 +36,40 @@ export default class ContactFormScene extends BaseScene {
       title: '',
       description: '',
       realm: null,
+      loading: false,
     };
+
+    this.postService = new PostService();
+    this.user = props.user;
   }
 
-  render() {
+  sendEmail = () => {
     const {title, description} = this.state;
+    this.setState({loading: true});
+    const payload = {
+      templateName: 'labsitcodeTeste3',
+      sendTo: this.user.Email,
+      data: {
+        short_name: 'Caue',
+        title,
+        description,
+      },
+    };
+
+    this.postService
+      .sendEmail(payload)
+      .then(() => {
+        this.setState({loading: false, title: '', description: ''});
+        Alert.alert('email enviado');
+      })
+      .catch((error) => {
+        this.setState({loading: false, title: '', description: ''});
+        Alert.alert(error);
+      });
+  };
+
+  render() {
+    const {title, description, loading} = this.state;
 
     return super.render(
       <KeyboardAwareScrollView
@@ -72,7 +109,8 @@ export default class ContactFormScene extends BaseScene {
               buttonColor={colors.inkBlue}
               textColor={colors.white}
               text={'ENVIAR'}
-              onPress={() => this.createNewUser()}
+              loading={loading}
+              onPress={() => this.sendEmail()}
             />
           </View>
         </View>

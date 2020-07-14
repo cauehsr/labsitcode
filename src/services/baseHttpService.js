@@ -16,8 +16,7 @@ export default class BaseHttpService {
   post = (url, payload) =>
     axios.post(url, payload, {
       headers: {
-        'Content-Type': 'application/octet-stream',
-        'Ocp-Apim-Subscription-Key': api_key,
+        'Content-Type': 'application/json',
       },
     });
 

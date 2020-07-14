@@ -6,6 +6,7 @@ import {
   Dimensions,
   FlatList,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import BaseScene from 'labsitcode/src/screens/baseScene';
 import {
@@ -47,7 +48,8 @@ export default class ContactListScene extends BaseScene {
   }
 
   getContact = async () => {
-    // await mock(); Descomente a linha para criar a lista novamente
+    // Descomente a linha para criar a lista novamente
+    // await mock();
     const results = await getContacts();
     const array = [];
     results.map((item) => {
@@ -89,11 +91,15 @@ export default class ContactListScene extends BaseScene {
     const {currentItem} = this.state;
     this.setState({showModal: false});
     setTimeout(() => {
-      this.navigationModal(
-        this.screen.ContactFormScene,
-        this.animationType.MODALSLIDERIGHTTOLEFT,
-        {currentItem},
-      );
+      if (currentItem.Email) {
+        this.navigationModal(
+          this.screen.ContactFormScene,
+          this.animationType.MODALSLIDERIGHTTOLEFT,
+          {user: currentItem},
+        );
+      } else {
+        Alert.alert('Infelizmente o contato não tem um email :(');
+      }
     }, 600);
   };
 

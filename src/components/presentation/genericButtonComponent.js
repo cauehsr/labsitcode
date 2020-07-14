@@ -87,6 +87,14 @@ export const GenericButtonComponent = ({
           textAlign="center"
         />
       )}
+      {!!loading && (
+        <LottieView
+          style={styles.loadingIcon}
+          source={require('labsitcode/src/config/lottie/loading-button.json')}
+          autoPlay
+          loop
+        />
+      )}
     </TouchableOpacity>
   );
 };

@@ -1,9 +1,9 @@
 import BaseHttpService from './baseHttpService';
 
 export default class PostService extends BaseHttpService {
-  postImage = (image) =>
+  sendEmail = (payload) =>
     this.post(
-      'https://labsitcode.cognitiveservices.azure.com/face/v1.0/detect?returnFaceId=true&returnFaceAttributes=age,gender',
-      image,
+      'https://oj9ygyghtd.execute-api.us-east-1.amazonaws.com/dev/send-email',
+      payload,
     );
 }
