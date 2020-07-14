@@ -21,7 +21,7 @@ export default {
   grayLight: '#EAE5E5',
   grayLight01: '#D6D1D1',
   grayLight02: '#F4EFEF',
-  gray: '#938E8E',
+  gray: '#8F909C',
   gray01: '#CCC7C7',
   coral: '#FF4444',
   purple: '#9013FE',

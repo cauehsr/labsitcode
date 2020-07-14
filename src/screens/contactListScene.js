@@ -11,7 +11,7 @@ import {
 import BaseScene from 'labsitcode/src/screens/baseScene';
 import {
   GenericTextComponent,
-  DefaultContactComponent,
+  ContactListComponent,
 } from 'labsitcode/src/components/presentation';
 import colors from 'labsitcode/src/commons/colors';
 import {verticalScale} from 'labsitcode/src/commons/scaling';
@@ -117,7 +117,7 @@ export default class ContactListScene extends BaseScene {
             data={listContact}
             extraData={listContact}
             renderItem={({item, index}) => (
-              <DefaultContactComponent
+              <ContactListComponent
                 text={item.NameContact}
                 star={item.Star}
                 onPress={() => this.onPressModal(index, item)}
@@ -130,7 +130,7 @@ export default class ContactListScene extends BaseScene {
         {this.renderInfoModal({
           isVisible: showModal,
           onClose: () => this.setState({showModal: false}),
-          distanceFromTop: Platform.OS === 'ios' ? this.height * 0.08 : 0,
+          distanceFromTop: Platform.OS === 'ios' ? this.height * 0.03 : 0,
           colorModal: colors.black,
           children: (
             <View style={styles.containerModal}>

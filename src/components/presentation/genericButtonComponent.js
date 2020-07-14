@@ -7,13 +7,6 @@ import {GenericTextComponent} from './genericTextComponent';
 import LottieView from 'lottie-react-native';
 import {verticalScale} from 'labsitcode/src/commons/scaling';
 
-const StyleguideItem = {
-  BUTTON: 'BUTTON',
-  HALFBUTTON: 'HALFBUTTON',
-  HALFBUTTONPROFILE: 'HALFBUTTONPROFILE',
-  TINYBUTTON: 'TINYBUTTON',
-  BUTTONMODAL: 'BUTTONMODAL',
-};
 
 export const GenericButtonComponent = ({
   buttonColor,
@@ -25,34 +18,11 @@ export const GenericButtonComponent = ({
   boderColor,
   styleguideItem,
 }) => {
-  let currentStyle;
-
-  switch (styleguideItem) {
-    case StyleguideItem.BUTTON:
-      currentStyle = styles.button;
-      break;
-    case StyleguideItem.HALFBUTTON:
-      currentStyle = styles.halfButton;
-      break;
-    case StyleguideItem.HALFBUTTONPROFILE:
-      currentStyle = styles.halfButtonProfile;
-      break;
-    case StyleguideItem.BUTTONMODAL:
-      currentStyle = styles.buttonModal;
-      break;
-    case StyleguideItem.TINYBUTTON:
-      currentStyle = styles.tinyButton;
-      break;
-    default:
-      currentStyle = styles.default;
-      break;
-  }
-
   return (
     <TouchableOpacity
       onPress={disabled !== undefined ? (disabled ? null : onPress) : onPress}
       style={[
-        currentStyle,
+        styles.default,
         {
           backgroundColor:
             disabled !== undefined
@@ -100,7 +70,6 @@ export const GenericButtonComponent = ({
 };
 
 GenericButtonComponent.defaultProps = {
-  styleguideItem: StyleguideItem.DEFAULT,
   buttonColor: colors.pumpkinOrange,
   textColor: colors.white,
   text: '',
@@ -108,7 +77,6 @@ GenericButtonComponent.defaultProps = {
 };
 
 GenericButtonComponent.propTypes = {
-  styleguideItem: PropTypes.oneOf(Object.keys(StyleguideItem)),
   text: PropTypes.string,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -117,33 +85,12 @@ GenericButtonComponent.propTypes = {
   boderColor: PropTypes.string,
 };
 
-GenericButtonComponent.StyleguideItem = StyleguideItem;
 
 const styles = StyleSheet.create({
   default: {
     width: Dimensions.get('window').width / 1.1,
     height: 70,
     borderRadius: 8,
-  },
-  halfButton: {
-    width: Dimensions.get('window').width / 2.4,
-    height: 50,
-    borderRadius: 8,
-  },
-  halfButtonProfile: {
-    width: Dimensions.get('window').width / 2.2,
-    height: 45,
-    borderRadius: 8,
-  },
-  buttonModal: {
-    width: Dimensions.get('window').width / 1.7,
-    height: 45,
-    borderRadius: 8,
-  },
-  tinyButton: {
-    width: Dimensions.get('window').width / 3.9,
-    height: 31,
-    borderRadius: 6,
   },
   loadingIcon: {
     top: verticalScale(2),

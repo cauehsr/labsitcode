@@ -17,8 +17,9 @@ import {
 } from 'labsitcode/src/commons/scaling';
 import {GenericTextComponent} from 'labsitcode/src/components/presentation';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import LottieView from 'lottie-react-native';
 
-export const DefaultContactComponent = (props) => {
+export const ContactListComponent = (props) => {
   const {onPress, text, onPressFavorite, star} = props;
 
   return (
@@ -30,24 +31,34 @@ export const DefaultContactComponent = (props) => {
           color={colors.white}
         />
         <TouchableOpacity style={styles.star} onPress={onPressFavorite}>
-          <Icon
-            name="star"
-            color={star ? colors.orange : colors.white}
-            size={fontScale(23)}
-          />
+          {star ? (
+            <LottieView
+              style={styles.loadingIcon}
+              source={require('labsitcode/src/config/lottie/start-animation.json')}
+              autoPlay
+              loop={false}
+            />
+          ) : (
+            <Icon
+              name="star"
+              solid
+              color={star ? colors.orange : colors.gray}
+              size={fontScale(25)}
+            />
+          )}
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
 };
 
-DefaultContactComponent.defaultProps = {
+ContactListComponent.defaultProps = {
   buttonColor: colors.pumpkinOrange,
   textColor: colors.white,
   text: '',
 };
 
-DefaultContactComponent.propTypes = {
+ContactListComponent.propTypes = {
   onPress: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   loading: PropTypes.bool,
