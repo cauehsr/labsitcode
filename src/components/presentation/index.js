@@ -3,7 +3,8 @@ export {GenericButtonComponent} from 'labsitcode/src/components/presentation/gen
 export {RadioButtonComponent} from 'labsitcode/src/components/presentation/radioButtonComponent';
 export {GenericModalComponent} from 'labsitcode/src/components/presentation/genericModalComponent';
 export {GenericModalInfoContainerComponent} from './genericModalInfoContainerComponent';
-export {GenericCheckboxComponent} from './genericCheckboxComponent';
 export {TextInputComponent} from './textInputComponent';
 export {TextLinkButtonComponent} from './textLinkButtonComponent';
 export {TitleInputComponent} from './titleInputComponent';
+export {TopbarComponent} from './TopbarComponent';
+export {DefaultContactComponent} from './DefaultContactComponent';

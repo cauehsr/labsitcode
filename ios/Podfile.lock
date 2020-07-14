@@ -68,6 +68,9 @@ PODS:
     - boost-for-react-native
     - DoubleConversion
     - glog
+  - GCDWebServer (3.5.4):
+    - GCDWebServer/Core (= 3.5.4)
+  - GCDWebServer/Core (3.5.4)
   - glog (0.3.5)
   - lottie-ios (3.1.8)
   - lottie-react-native (3.4.0):
@@ -312,6 +315,9 @@ PODS:
     - React
     - React-RCTImage
     - React-RCTText
+  - RealmJS (6.0.2):
+    - GCDWebServer
+    - React
   - RNCAsyncStorage (1.11.0):
     - React
   - RNSVG (12.1.0):
@@ -374,6 +380,7 @@ DEPENDENCIES:
   - ReactCommon/callinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
+  - RealmJS (from `../node_modules/realm`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -391,6 +398,7 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - Flipper-RSocket
     - FlipperKit
+    - GCDWebServer
     - lottie-ios
     - OpenSSL-Universal
     - YogaKit
@@ -454,6 +462,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
+  RealmJS:
+    :path: "../node_modules/realm"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNSVG:
@@ -479,6 +489,7 @@ SPEC CHECKSUMS:
   Flipper-RSocket: 64e7431a55835eb953b0bf984ef3b90ae9fdddd7
   FlipperKit: 6dc9b8f4ef60d9e5ded7f0264db299c91f18832e
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   lottie-react-native: a664f59f1f298c2696dd0ae07b15cbdfc433cb02
@@ -505,6 +516,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
   ReactNativeNavigation: dd4a4a76d2deb5130d809ec4a6f7f2b182fa1a11
+  RealmJS: fa482f7607e70a17abfc5e7817cfca1042186b62
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
@@ -513,4 +525,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c004b3030a12792e68cefa1d50a32df7d484d3fc
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.0

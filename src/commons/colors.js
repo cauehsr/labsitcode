@@ -1,5 +1,5 @@
 export default {
-  yellowOrange: '#ffb601',
+  orange: '#ffa500',
   lightOrange: '#ff8e1a',
   blueViolet: '#6a11e2',
   pumpkinRed: '#f4511e',

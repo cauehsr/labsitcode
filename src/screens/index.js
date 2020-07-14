@@ -6,74 +6,25 @@ import {AnimationType} from './screenAnimations';
 export const Screen = {
 
   // Login
-  WelcomeLoginScene: 'login.welcomeLoginScene',
-  LoginScene: 'login.loginScene',
-  RegisterPasswordScene: 'login.register.registerPasswordScene',
-  RegisterConfirmEmailScene: 'login.register.registerConfirmEmailScene',
-  RegisterNameScene: 'login.register.registerNameScene',
-  RegisterBirthdateScene: 'login.register.registerBirthdateScene',
-  ResgiterWelcomeScene: 'login.register.resgiterWelcomeScene',
-  ResgiterUserNameScene: 'login.register.resgiterUsernameScene',
-
-  //Simulation
-  SelfieScanScene: 'simulation.selfieScanScene',
-  CropSelfieScene: 'simulation.cropSelfieScene',
-  ImcScene: 'simulation.imcScene',
-  TotalSimulationScene: 'simulation.totalSimulationScene',
+  ContactListScene: 'contactListScene',
+  ContactFormScene: 'contactFormScene',
+  // LoginScene: 'login.loginScene',
 };
 
 export const registerScreens = () => {
   // Login
   Navigation.registerComponent(
-    Screen.WelcomeLoginScene,
-    () => require('./login/welcomeLoginScene').default,
+    Screen.ContactListScene,
+    () => require('./contactListScene').default,
   );
   Navigation.registerComponent(
-    Screen.LoginScene,
-    () => require('./login/loginScene').default,
+    Screen.ContactFormScene,
+    () => require('./contactFormScene').default,
   );
-  Navigation.registerComponent(
-    Screen.RegisterPasswordScene,
-    () => require('./login/register/registerPasswordScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.RegisterConfirmEmailScene,
-    () => require('./login/register/registerConfirmEmailScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.RegisterNameScene,
-    () => require('./login/register/registerNameScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.RegisterBirthdateScene,
-    () => require('./login/register/registerBirthdateScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.ResgiterWelcomeScene,
-    () => require('./login/register/resgiterWelcomeScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.ResgiterUserNameScene,
-    () => require('./login/register/resgiterUsernameScene').default,
-  );
-
-  //Simulation
-  Navigation.registerComponent(
-    Screen.SelfieScanScene,
-    () => require('./simulation/selfieScanScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.CropSelfieScene,
-    () => require('./simulation/cropSelfieScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.ImcScene,
-    () => require('./simulation/imcScene').default,
-  );
-  Navigation.registerComponent(
-    Screen.TotalSimulationScene,
-    () => require('./simulation/totalSimulationScene').default,
-  );
+  // Navigation.registerComponent(
+  //   Screen.LoginScene,
+  //   () => require('./login/loginScene').default,
+  // );
 };
 
 export const registerLoginStack = () => {
@@ -109,44 +60,14 @@ export const registerLoginStack = () => {
         children: [
           {
             component: {
-              id: Screen.LoginScene,
-              name: Screen.LoginScene,
+              id: Screen.ContactFormScene,
+              name: Screen.ContactFormScene,
             },
           },
           {
             component: {
-              id: Screen.RegisterPasswordScene,
-              name: Screen.RegisterPasswordScene,
-            },
-          },
-          {
-            component: {
-              id: Screen.RegisterNameScene,
-              name: Screen.RegisterNameScene,
-            },
-          },
-          {
-            component: {
-              id: Screen.ResgiterWelcomeScene,
-              name: Screen.ResgiterWelcomeScene,
-            },
-          },
-          {
-            component: {
-              id: Screen.ResgiterUserNameScene,
-              name: Screen.ResgiterUserNameScene,
-            },
-          },
-          {
-            component: {
-              id: Screen.CropSelfieScene,
-              name: Screen.CropSelfieScene,
-            },
-          },
-          {
-            component: {
-              id: Screen.WelcomeLoginScene,
-              name: Screen.WelcomeLoginScene,
+              id: Screen.ContactListScene,
+              name: Screen.ContactListScene,
             },
           },
         ],

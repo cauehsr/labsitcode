@@ -48,20 +48,25 @@ export default class DefaultFormViewComponent extends Component {
       keyboardType,
       secureTextEntry,
       returnKeyType,
+      titleText,
+      numberOfLines,
+      multiline,
     } = this.props;
     return (
       <View style={styles.container}>
         <View
           style={{
-            marginBottom: !padded ? verticalScale(10) : verticalScale(18),
+            marginBottom: !padded ? verticalScale(40) : verticalScale(45),
           }}>
           <TitleInputComponent
-            titleText={title}
+            titleText={titleText}
             placeholderText={placeholderText}
             secureTextEntry={secureTextEntry}
             keyboardType={keyboardType}
             type={type}
             showAtSign={showAtSign}
+            multiline={multiline}
+            numberOfLines={numberOfLines}
             options={options}
             value={value}
             onChangeText={onChangeText}
@@ -73,7 +78,7 @@ export default class DefaultFormViewComponent extends Component {
             autoCapitalize={autoCapitalize}
             autoCorrect={autoCorrect}
             returnKeyType={returnKeyType}
-            inputColor={colors.midnightBlack}
+            inputColor={colors.white}
           />
           {lineBar && (
             <View
