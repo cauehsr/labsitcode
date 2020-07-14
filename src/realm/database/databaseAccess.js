@@ -17,8 +17,6 @@ const saveContact = async (contact) => {
 const updateContact = async (contact) => {
   const realm = await new Realm({schema: [ContactSchema]});
   await realm.write(() => {
-    console.log('entrouuu');
-    
     realm.create('Contacts', contact, true);
   });
 };

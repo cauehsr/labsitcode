@@ -10,7 +10,6 @@ import {
 import BaseScene from 'labsitcode/src/screens/baseScene';
 import {
   GenericTextComponent,
-  GenericButtonComponent,
   DefaultContactComponent,
 } from 'labsitcode/src/components/presentation';
 import colors from 'labsitcode/src/commons/colors';
@@ -36,6 +35,7 @@ export default class ContactListScene extends BaseScene {
     this.state = {
       listContact: [],
       index: null,
+      currentItem: null,
       showModal: false,
     };
 
@@ -82,15 +82,17 @@ export default class ContactListScene extends BaseScene {
   };
 
   onPressModal = (index, item) => {
-    this.setState({showModal: true, currentIndex: index});
+    this.setState({showModal: true, currentIndex: index, currentItem: item});
   };
 
   onPressContact = () => {
+    const {currentItem} = this.state;
     this.setState({showModal: false});
     setTimeout(() => {
       this.navigationModal(
         this.screen.ContactFormScene,
         this.animationType.MODALSLIDERIGHTTOLEFT,
+        {currentItem},
       );
     }, 600);
   };
@@ -160,6 +162,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
   },
   contact: {
-    marginBottom: verticalScale(150)
+    marginBottom: verticalScale(150),
   },
 });
